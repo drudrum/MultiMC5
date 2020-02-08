@@ -212,7 +212,7 @@ void LaunchController::launchInstance()
     }
     connect(m_launcher.get(), &LaunchTask::readyForLaunch, this, &LaunchController::readyForLaunch);
     connect(m_launcher.get(), &LaunchTask::succeeded, this, &LaunchController::onSucceeded);
-    connect(m_launcher.get(), &LaunchTask::failed, this,  &LaunchController::onFailed);
+    connect(m_launcher.get(), &LaunchTask::failed, this,  &LaunchController::onSucceeded);
     connect(m_launcher.get(), &LaunchTask::requestProgress, this, &LaunchController::onProgressRequested);
 
 
