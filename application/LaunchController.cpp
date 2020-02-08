@@ -91,7 +91,7 @@ void LaunchController::login()
         m_session = std::make_shared<AuthSession>();
         m_session->wants_online = m_online;
         auto task = account->login(m_session, password);
-        if (task)
+        /*if (task)
         {
             // We'll need to validate the access token to make sure the account
             // is still logged in.
@@ -111,8 +111,8 @@ void LaunchController::login()
                 }
                 else failReason = failReasonNew;
             }
-        }
-        switch (m_session->status)
+        }*/
+        /*switch (m_session->status)
         {
         case AuthSession::Undetermined:
         {
@@ -153,9 +153,9 @@ void LaunchController::login()
                 tryagain = false;
             }
             break;
-        }
-        case AuthSession::PlayableOffline:
-        {
+        }*/
+        //case AuthSession::PlayableOffline:
+        //{
             // we ask the user for a player name
             bool ok = false;
             QString usedname = m_session->player_name;
@@ -173,14 +173,14 @@ void LaunchController::login()
             }
             m_session->MakeOffline(usedname);
             // offline flavored game from here :3
-        }
-        case AuthSession::PlayableOnline:
+        //}
+        /*case AuthSession::PlayableOnline:
         {
             launchInstance();
             tryagain = false;
             return;
         }
-        }
+        }*/
     }
     emitFailed(tr("Failed to launch."));
 }
