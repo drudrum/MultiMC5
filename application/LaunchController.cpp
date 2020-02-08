@@ -86,8 +86,8 @@ void LaunchController::login()
     const QString needLoginAgain = tr("Your account is currently not logged in. Please enter your password to log in again. <br /> <br /> This could be caused by a password change.");
     QString failReason = needLoginAgain;
 
-    while (tryagain)
-    {
+    //while (tryagain)
+    //{
         m_session = std::make_shared<AuthSession>();
         m_session->wants_online = m_online;
         auto task = account->login(m_session, password);
@@ -162,11 +162,11 @@ void LaunchController::login()
             QString name = QInputDialog::getText(m_parentWidget, tr("Player name"),
                                                  tr("Choose your offline mode player name."),
                                                  QLineEdit::Normal, m_session->player_name, &ok);
-            if (!ok)
-            {
-                tryagain = false;
-                break;
-            }
+            //if (!ok)
+            //{
+            //    tryagain = false;
+            //    break;
+            //}
             if (name.length())
             {
                 usedname = name;
@@ -181,7 +181,7 @@ void LaunchController::login()
             return;
         }
         }*/
-    }
+    //}
     emitFailed(tr("Failed to launch."));
 }
 
