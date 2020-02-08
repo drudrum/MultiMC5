@@ -171,7 +171,8 @@ void LaunchController::login()
             {
                 usedname = name;
             }
-            m_session->MakeOffline(usedname);
+            m_session->MakeOffline(usedname);    
+            launchInstance();
             // offline flavored game from here :3
         //}
         /*case AuthSession::PlayableOnline:
