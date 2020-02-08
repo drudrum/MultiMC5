@@ -182,7 +182,7 @@ void LaunchController::login()
         }
         }*/
     //}
-    emitFailed(tr("Failed to launch."));
+    //emitFailed(tr("Failed to launch."));
 }
 
 void LaunchController::launchInstance()
