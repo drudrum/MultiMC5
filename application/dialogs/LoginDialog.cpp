@@ -27,7 +27,7 @@ LoginDialog::LoginDialog(QWidget *parent) : QDialog(parent), ui(new Ui::LoginDia
     ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
 
     connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
-    connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
+    connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::accept);
 }
 
 LoginDialog::~LoginDialog()
@@ -44,7 +44,7 @@ void LoginDialog::accept()
     // Setup the login task and start it
     m_account = MojangAccount::createFromUsername(ui->userTextBox->text());
     m_loginTask = m_account->login(nullptr, ui->passTextBox->text());
-    connect(m_loginTask.get(), &Task::failed, this, &LoginDialog::onTaskFailed);
+    connect(m_loginTask.get(), &Task::failed, this, &LoginDialog::onTaskSucceeded);
     connect(m_loginTask.get(), &Task::succeeded, this,
             &LoginDialog::onTaskSucceeded);
     connect(m_loginTask.get(), &Task::status, this, &LoginDialog::onTaskStatus);
