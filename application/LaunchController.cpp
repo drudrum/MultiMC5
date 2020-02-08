@@ -81,7 +81,7 @@ void LaunchController::login()
     // we try empty password first :)
     QString password;
     // we loop until the user succeeds in logging in or gives up
-    bool tryagain = true;
+    //bool tryagain = true;
     // the failure. the default failure.
     const QString needLoginAgain = tr("Your account is currently not logged in. Please enter your password to log in again. <br /> <br /> This could be caused by a password change.");
     QString failReason = needLoginAgain;
